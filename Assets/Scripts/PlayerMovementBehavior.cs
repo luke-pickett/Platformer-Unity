@@ -1,22 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerMovementBehavior : MovementBehavior
 {
-
-    [SerializeField] private float _speed;
-
-    
     void Start()
     {
         
     }
 
-    
     void Update()
     {
-       
+        
+    }
+
+    private void FixedUpdate()
+    {
         
     }
 }
