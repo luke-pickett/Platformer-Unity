@@ -1,18 +1,33 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MovementBehavior : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] protected float speed;
+    protected enum Direction { Left, Right }
+
+    protected Direction Facing = Direction.Left;
+    protected Rigidbody2D Rigidbody;
+    protected SpriteRenderer SpriteRenderer;
+
+
+    private void Awake()
     {
-        
+        Rigidbody = GetComponent<Rigidbody2D>();
+        SpriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
-    void Update()
+    protected void ChangeDirection()
     {
-        
+        if (SpriteRenderer.flipX)
+        {
+            SpriteRenderer.flipX = false;
+        }
+        else
+        {
+            SpriteRenderer.flipX = true;
+        }
     }
 }
