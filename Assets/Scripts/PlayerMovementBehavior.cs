@@ -1,28 +1,33 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovementBehavior : MovementBehavior
 {
-    void Start()
+    [SerializeField] private float jumpHeight = 5f;    
+    private bool isGrounded = true;                     
+
+    private void Update()
     {
         
-    }
+        float moveDirection = 0f;
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
-            
+            moveDirection = -1f;
+            if (Facing != Direction.Right)
+            {
+                Facing = Direction.Right;
+                ChangeDirection();
+            }
         }
-        if (Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D))
         {
-
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-
+            moveDirection = 1f;
+            if (Facing != Direction.Left)
+            {
+                Facing = Direction.Left;
+                ChangeDirection();
+            }
         }
 
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) GetComponent<Animator>().SetBool("Running", true);
@@ -31,10 +36,24 @@ public class PlayerMovementBehavior : MovementBehavior
         if (Input.GetKey(KeyCode.Space)) GetComponent<Animator>().SetBool("Jumping", true);
         else GetComponent<Animator>().SetBool("Jumping", false);
 
+
+        
+        Rigidbody.velocity = new Vector2(moveDirection * speed, Rigidbody.velocity.y);
+
+       
+        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
+        {
+            Rigidbody.velocity = new Vector2(Rigidbody.velocity.x, Mathf.Sqrt(jumpHeight * -2f * Physics2D.gravity.y));
+            isGrounded = false;
+        }
     }
 
-    private void FixedUpdate()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
     }
 }
