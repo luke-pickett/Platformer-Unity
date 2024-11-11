@@ -33,7 +33,7 @@ public class PlayerMovementBehavior : MovementBehavior
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) GetComponent<Animator>().SetBool("Running", true);
         else GetComponent<Animator>().SetBool("Running", false);
 
-        if (Input.GetKey(KeyCode.Space)) GetComponent<Animator>().SetBool("Jumping", true);
+        if (Input.GetKey(KeyCode.Space) || isGrounded != true) GetComponent<Animator>().SetBool("Jumping", true);
         else GetComponent<Animator>().SetBool("Jumping", false);
 
 
