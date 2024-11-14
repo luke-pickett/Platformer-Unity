@@ -2,13 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class MovementBehavior : MonoBehaviour
 {
     [SerializeField] protected float speed;
-    protected enum Direction { Left, Right }
+    public enum Direction { Left, Right }
 
-    protected Direction Facing = Direction.Left;
+    public Direction facing = Direction.Left;
     protected Rigidbody2D Rigidbody;
     protected SpriteRenderer SpriteRenderer;
 

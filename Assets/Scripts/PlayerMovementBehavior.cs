@@ -14,18 +14,18 @@ public class PlayerMovementBehavior : MovementBehavior
         if (Input.GetKey(KeyCode.A))
         {
             moveDirection = -1f;
-            if (Facing != Direction.Right)
+            if (facing != Direction.Right)
             {
-                Facing = Direction.Right;
+                facing = Direction.Right;
                 ChangeDirection();
             }
         }
         else if (Input.GetKey(KeyCode.D))
         {
             moveDirection = 1f;
-            if (Facing != Direction.Left)
+            if (facing != Direction.Left)
             {
-                Facing = Direction.Left;
+                facing = Direction.Left;
                 ChangeDirection();
             }
         }
