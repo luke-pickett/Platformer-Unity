@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 1823658860598514779}
   - component: {fileID: 5846234553236608706}
   - component: {fileID: 1578766590647872563}
+  - component: {fileID: 1433846089749446920}
+  - component: {fileID: 792900393510417655}
   m_Layer: 0
   m_Name: EndPoint
-  m_TagString: Untagged
+  m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,3 +108,32 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!70 &1433846089749446920
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4731084026834683983}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.09988284, y: -0.12385452}
+  m_Size: {x: 0.19294691, y: 0.75229096}
+  m_Direction: 0
+--- !u!114 &792900393510417655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4731084026834683983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16ed885826d99904cace291e80acda33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextLevelUI: {fileID: 0}

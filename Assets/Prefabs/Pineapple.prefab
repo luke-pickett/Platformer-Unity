@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 2549288405596010172}
   - component: {fileID: 1778184107007070639}
   - component: {fileID: 1080883752409866945}
-  - component: {fileID: 2443126431359548229}
+  - component: {fileID: 4580391587106501909}
+  - component: {fileID: 3016642946851813849}
   m_Layer: 0
   m_Name: Pineapple
   m_TagString: Untagged
@@ -107,7 +108,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!58 &2443126431359548229
+--- !u!114 &4580391587106501909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561075728685724663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb762172809f6334798649053e06d5c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FruitValue: 1
+--- !u!58 &3016642946851813849
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,6 +134,6 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.06}
+  m_Offset: {x: 0, y: -0.0730561}
   serializedVersion: 2
-  m_Radius: 0.2
+  m_Radius: 0.2029056

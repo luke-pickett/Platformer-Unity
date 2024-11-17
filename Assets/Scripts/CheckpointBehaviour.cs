@@ -1,14 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CheckpointBehaviour : MonoBehaviour
 {
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.gameObject.tag = "Player")
-    //    {
+    public GameObject nextLevelUI;
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
             
-    //    }
-    //}
+            Time.timeScale = 0f;
+
+            
+            if (nextLevelUI != null)
+            {
+                nextLevelUI.SetActive(true);
+            }
+            
+        }
+    }
 }
