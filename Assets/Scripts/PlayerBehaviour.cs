@@ -123,4 +123,12 @@ public class PlayerBehaviour : EntityBehavior
                 break;
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            PlayerHit?.Invoke();
+        }
+    }
 }
