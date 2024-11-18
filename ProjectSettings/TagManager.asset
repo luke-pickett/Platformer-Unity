@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - EndPoint
   - Enemy
+  - Fruit
   layers:
   - Default
   - TransparentFX

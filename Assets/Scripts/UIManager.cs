@@ -1,45 +1,28 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    private static UIManager instance;
+    public static UIManager Instance; // Singleton instance
 
-    [SerializeField] private GameObject nextLevelButton;  // Reference to the button
-    private Button buttonComponent;
+    [SerializeField] private GameObject nextLevelUI; // UI for the next level
 
     private void Awake()
     {
-        // Check if the instance already exists
-        if (instance != null && instance != this)
+        if (Instance != null && Instance != this)
         {
-            Destroy(gameObject); // Destroy the duplicate
+            Destroy(gameObject);
             return;
         }
 
-        // Set this instance as the single one
-        instance = this;
-        DontDestroyOnLoad(gameObject); // Prevent this object from being destroyed on scene load
-
-        // Optionally, initialize the button component if it exists
-        if (nextLevelButton != null)
-        {
-            buttonComponent = nextLevelButton.GetComponent<Button>();
-        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
-    private void Start()
+    public void ShowNextLevelUI(bool show)
     {
-        // Optionally add listeners or other logic for the UI
-        if (buttonComponent != null)
+        if (nextLevelUI != null)
         {
-            buttonComponent.onClick.AddListener(HandleNextLevel);
+            nextLevelUI.SetActive(show);
         }
-    }
-
-    private void HandleNextLevel()
-    {
-        // Logic to handle button click, like loading the next level
-        Debug.Log("Loading next level...");
     }
 }

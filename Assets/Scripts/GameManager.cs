@@ -43,11 +43,7 @@ public class GameManager : MonoBehaviour
     {
         if (endGameStatsText != null)
         {
-            endGameStatsText.text = $"Total Fruits Collected: {TotalFruitsCollected}/{TotalFruitsAvailable}";
-        }
-        else
-        {
-            Debug.LogWarning("EndGameStatsText is not assigned in the GameManager!");
+            endGameStatsText.text = $"{TotalFruitsCollected}/{TotalFruitsAvailable}";
         }
     }
 }
