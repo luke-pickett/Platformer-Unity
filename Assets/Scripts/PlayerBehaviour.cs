@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;  // Make sure to include this for SceneManager
+using UnityEngine.SceneManagement;  
 
 public class PlayerBehaviour : EntityBehavior
 {
@@ -13,7 +13,6 @@ public class PlayerBehaviour : EntityBehavior
     public delegate void PlayerHasNoHealth();
     public static event PlayerHasNoHealth PlayerDied;
 
-    // Reference to the spawn point
     public Transform spawnPoint;
 
     private void OnEnable()
@@ -21,13 +20,11 @@ public class PlayerBehaviour : EntityBehavior
         PlayerHit += HurtPlayer;
         PlayerDied += KillPlayer;
 
-        // Subscribe to sceneLoaded event
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void OnDisable()
     {
-        // Unsubscribe to prevent memory leaks
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
@@ -36,7 +33,6 @@ public class PlayerBehaviour : EntityBehavior
         _rigidbody = GetComponent<Rigidbody2D>();
         _movementBehavior = GetComponent<MovementBehavior>();
 
-        // Ensure the player object persists across scene loads
         DontDestroyOnLoad(gameObject);
     }
 
@@ -54,7 +50,6 @@ public class PlayerBehaviour : EntityBehavior
 
     void KillPlayer()
     {
-        // Destroy the player if they die (if necessary)
         Destroy(gameObject);
     }
 
@@ -87,23 +82,18 @@ public class PlayerBehaviour : EntityBehavior
         _movementBehavior.enabled = true;
     }
 
-    // This method is called after each scene load
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Set the spawn position based on the scene name
         SetSpawnPointForScene(scene.name);
 
-        // Set the player's position to the spawn point
         if (spawnPoint != null)
         {
             transform.position = spawnPoint.position;
         }
     }
 
-    // Set the spawn point based on the current scene
     private void SetSpawnPointForScene(string sceneName)
     {
-        // Example logic based on scene name
         switch (sceneName)
         {
             case "Level-1":
