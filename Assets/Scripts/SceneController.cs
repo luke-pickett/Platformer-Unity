@@ -4,12 +4,12 @@ using UnityEngine.UI;
 
 public class SceneController : MonoBehaviour
 {
-    public static SceneController Instance; // Singleton instance
+    public static SceneController Instance; 
 
     [SerializeField] private Button nextLevelButton;
     [SerializeField] private GameObject nextLevelUI;
-    [SerializeField] private GameObject fruitDisplayUI; // Reference to the FruitDisplay UI
-    [SerializeField] private GameObject endGameUI;      // Reference to the EndGame UI
+    [SerializeField] private GameObject fruitDisplayUI; 
+    [SerializeField] private GameObject endGameUI;     
 
     private void Awake()
     {
@@ -34,13 +34,11 @@ public class SceneController : MonoBehaviour
 
         if (currentScene == "GameEnd")
         {
-            // Disable FruitDisplay UI and enable EndGame UI
             if (fruitDisplayUI != null) fruitDisplayUI.SetActive(false);
             if (endGameUI != null) endGameUI.SetActive(true);
         }
         else
         {
-            // Default: Enable FruitDisplay UI and disable EndGame UI
             if (fruitDisplayUI != null) fruitDisplayUI.SetActive(true);
             if (endGameUI != null) endGameUI.SetActive(false);
 
