@@ -136,4 +136,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16ed885826d99904cace291e80acda33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevelUI: {fileID: 0}
+  levelCompleteSound: {fileID: 8300000, guid: 13a9545bbe525eb4c89398d450656c2b, type: 3}

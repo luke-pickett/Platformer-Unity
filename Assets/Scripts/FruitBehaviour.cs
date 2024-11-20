@@ -8,15 +8,11 @@ public class FruitBehaviour : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            
-            SceneFruitCounter.Instance.AddCollectedFruit(FruitValue);
 
-            
+            SceneFruitCounter.Instance.AddCollectedFruit(FruitValue);
             GameManager.Instance.AddToTotalFruitsCollected(FruitValue);
 
-            
             Destroy(gameObject);
         }
     }
-
 }

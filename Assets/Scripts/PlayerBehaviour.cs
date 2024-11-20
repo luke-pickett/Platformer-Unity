@@ -50,7 +50,14 @@ public class PlayerBehaviour : EntityBehavior
 
     void KillPlayer()
     {
-        Destroy(gameObject);
+        if (spawnPoint != null)
+        {
+            transform.position = spawnPoint.position;
+        }
+
+        health = maxHealth; 
+
+        SceneFruitCounter.Instance?.ResetSceneFruitCount();
     }
 
     void HurtPlayer()

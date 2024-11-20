@@ -77,6 +77,13 @@ public class SceneFruitCounter : MonoBehaviour
         }
     }
 
+    public void ResetSceneFruitCount()
+    {
+        FruitsCollected = 0;
+        UpdateUI();
+    }
+
+
     private void DisplayEndGameUI()
     {
         if (sceneCounterText != null)

@@ -1,10 +1,19 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; 
+using UnityEngine.SceneManagement;
 
 public class CheckpointBehaviour : MonoBehaviour
 {
+    [SerializeField] private AudioClip levelCompleteSound;
+    private AudioSource audioSource; 
+
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
@@ -17,7 +26,12 @@ public class CheckpointBehaviour : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-    
+            if (levelCompleteSound != null && audioSource != null)
+            {
+                audioSource.PlayOneShot(levelCompleteSound);
+            }
+            
+
             Time.timeScale = 0f;
 
             UIManager.Instance.ShowNextLevelUI(true);

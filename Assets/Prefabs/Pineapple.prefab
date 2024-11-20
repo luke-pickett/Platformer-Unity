@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FruitValue: 1
+  collectSound: {fileID: 8300000, guid: 91119c6d21fdd2f4bb5604d800c8fa04, type: 3}
 --- !u!58 &3016642946851813849
 CircleCollider2D:
   m_ObjectHideFlags: 0

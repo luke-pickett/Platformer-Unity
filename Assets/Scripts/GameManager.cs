@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 
     public int TotalFruitsCollected { get; private set; }
     public int TotalFruitsAvailable { get; private set; }
+    [SerializeField] private AudioClip collectSound; 
+    private AudioSource audioSource; 
 
     [SerializeField] private TextMeshProUGUI endGameStatsText; 
 
@@ -23,8 +25,21 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+    }
+
     public void AddToTotalFruitsCollected(int count = 1)
     {
+        if (collectSound != null && audioSource != null)
+            {
+                audioSource.PlayOneShot(collectSound);
+            }
         TotalFruitsCollected += count;
     }
 

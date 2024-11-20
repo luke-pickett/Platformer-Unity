@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    public static UIManager Instance; // Singleton instance
+    public static UIManager Instance; 
 
-    [SerializeField] private GameObject nextLevelUI; // UI for the next level
+    [SerializeField] private GameObject nextLevelUI;
 
     private void Awake()
     {

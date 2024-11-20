@@ -1,23 +1,27 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class MovementBehavior : MonoBehaviour
 {
     [SerializeField] protected float speed;
-    public enum Direction { Left, Right }
+    [SerializeField] protected float baseGravityScale = 1.5f; 
 
+    public enum Direction { Left, Right }
     public Direction facing = Direction.Left;
+
     protected Rigidbody2D Rigidbody;
     protected SpriteRenderer SpriteRenderer;
-
 
     private void Awake()
     {
         Rigidbody = GetComponent<Rigidbody2D>();
         SpriteRenderer = GetComponent<SpriteRenderer>();
+
+        if (Rigidbody != null)
+        {
+            Rigidbody.gravityScale = baseGravityScale; 
+        }
+        
     }
 
     protected void ChangeDirection()

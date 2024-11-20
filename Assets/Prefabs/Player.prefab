@@ -102,8 +102,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  baseGravityScale: 1.5
   facing: 0
   jumpHeight: 4
+  fallingGravityScale: 3
+  jumpSound: {fileID: 8300000, guid: 91119c6d21fdd2f4bb5604d800c8fa04, type: 3}
 --- !u!50 &7233035086415643953
 Rigidbody2D:
   serializedVersion: 4
@@ -175,3 +178,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+  maxHealth: 3
+  spawnPoint: {fileID: 0}

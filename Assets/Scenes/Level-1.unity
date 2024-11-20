@@ -4517,6 +4517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34d238122d969ed4292b044d86a325c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectSound: {fileID: 8300000, guid: 74adf9aa009a13a49bff6a34205efb15, type: 3}
   endGameStatsText: {fileID: 1433857898}
 --- !u!4 &1362051731
 Transform:
